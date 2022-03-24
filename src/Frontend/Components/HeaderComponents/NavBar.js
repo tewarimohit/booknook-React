@@ -1,4 +1,5 @@
 import React from "react";
+import "../../../App.css";
 import { Link } from "react-router-dom";
 import Avatar from "../../../Assets/avatar.png";
 
@@ -14,10 +15,12 @@ const NavBar = () => {
 				</Link>
 				<Link to="/wishlist" title="Wishlist" className="head-link heart">
 					<i className="material-icons">favorite_border </i>{" "}
+					<span className="added-items">0</span>
 				</Link>
 
 				<Link to="/cart" className="cart head-link" title="Cart">
 					<i className="material-icons">shopping_cart</i>
+					<span className="added-items">0</span>
 				</Link>
 			</nav>
 			<Link to="#" className="user" title="User Info">
