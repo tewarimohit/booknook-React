@@ -1,0 +1,145 @@
+@import url("https://technomentum.netlify.app/css_docs/cards.css");
+
+.product-page-container {
+	position: relative;
+	display: grid;
+	color: var(--ecom-login-bdr);
+	grid-template-columns: repeat(5, 1fr);
+	grid-gap: 10px;
+
+	grid-template-areas:
+		" head head head head head"
+		" ---- info info info info"
+		" side content content  content content"
+		" footer footer footer footer footer";
+}
+
+.page-header {
+	grid-area: head;
+	position: sticky;
+	top: 0;
+	z-index: 1;
+}
+
+.side-bar {
+	grid-area: side;
+	display: flex;
+	justify-content: flex-start;
+	z-index: 0;
+}
+
+.range {
+	display: flex;
+	justify-content: flex-start;
+	width: 100%;
+}
+
+.info {
+	grid-area: info;
+	display: flex;
+	align-items: center;
+	height: 2rem;
+}
+
+.page-content {
+	grid-area: content;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 10px;
+	justify-content: start;
+	align-items: start;
+}
+
+.footer {
+	background-color: red;
+	grid-area: footer;
+}
+
+.prime-color {
+	color: var(--normal-dark);
+}
+
+.drawer {
+	text-align: left;
+	max-width: 400px;
+	justify-content: flex-start;
+	background: linear-gradient(#f5fffa, #87cefa);
+}
+
+.drawer-elements {
+	width: 250px;
+}
+
+.margin-left-l {
+	margin-left: 1rem;
+}
+
+.margin-bottom-m {
+	margin-bottom: 0.5rem;
+}
+
+.margin-bottom-s {
+	margin-bottom: 0.2rem;
+}
+
+.card {
+	width: 300px;
+}
+
+.card-body {
+	display: flex;
+	align-items: center;
+}
+
+.card-footer {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.icon-buy {
+	margin-left: 9px;
+	padding: 10px 15px;
+	border-radius: 3px;
+	color: var(--primary-colorone);
+	background-color: var(--ecom-login);
+}
+
+.icon-buy:hover {
+	cursor: pointer;
+}
+
+.cart-btn {
+	padding: 4px 7px;
+	border-radius: 3px;
+	color: var(--ecom-login);
+	background-color: var(--primary-colorone);
+}
+
+.heart {
+	color: var(--primary-colorone);
+}
+
+.nav-items a i {
+	font-size: 32px;
+}
+
+.heart-icon {
+	padding: 0.5rem 0.5rem;
+	color: var(--invalid-dark);
+	background-color: var(--primary-colorone);
+}
+
+.heart-icon:hover {
+	border-radius: 50%;
+	background-color: var(--invalid-light);
+}
+
+.text-cut {
+	text-decoration-line: line-through;
+}
+
+.user-img {
+	display: flex;
+	justify-content: center;
+}
