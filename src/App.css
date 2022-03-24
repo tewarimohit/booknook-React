@@ -1,2 +1,9 @@
-.App {
+.added-items {
+	position: relative;
+	font-size: 1rem;
+	background-color: red;
+	padding: 1px 4px;
+	border-radius: 50%;
+	top: -1rem;
+	left: -1rem;
 }
