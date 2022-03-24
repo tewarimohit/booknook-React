@@ -57,7 +57,7 @@ const GetFilters = (state, action) => {
 			};
 
 		default:
-			console.log("Products not found.");
+			return state;
 	}
 };
 

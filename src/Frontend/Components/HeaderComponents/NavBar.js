@@ -13,7 +13,7 @@ const NavBar = () => {
 					Login
 				</Link>
 				<Link to="/wishlist" title="Wishlist" className="head-link heart">
-					<i className="material-icons">favorite_border</i>
+					<i className="material-icons">favorite_border </i>{" "}
 				</Link>
 
 				<Link to="/cart" className="cart head-link" title="Cart">

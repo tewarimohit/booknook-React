@@ -9,8 +9,6 @@ import { useFilter } from "../Context/FilterContext.js";
 const Products = () => {
 	const { filteredProducts } = useFilter();
 
-	console.log("products", filteredProducts);
-
 	return (
 		<div>
 			<div className="product-page-container">

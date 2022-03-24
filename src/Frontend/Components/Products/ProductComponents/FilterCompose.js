@@ -17,32 +17,6 @@ const getSortBy = (state, data) => {
 	}
 };
 
-const getActionBooks = (state, data) => {
-	return state.isAction
-		? data.filter(item => item.categoryName === "action")
-		: data;
-};
-const getClassicBooks = (state, data) => {
-	return state.isClassic
-		? data.filter(item => item.categoryName === "classic")
-		: data;
-};
-const getFictionBooks = (state, data) => {
-	return state.isFiction
-		? data.filter(item => item.categoryName === "fiction")
-		: data;
-};
-const getRomanceBooks = (state, data) => {
-	return state.isRomance
-		? data.filter(item => item.categoryName === "romance")
-		: data;
-};
-const getShortStoryBooks = (state, data) => {
-	return state.isShortStory
-		? data.filter(item => item.categoryName === "short-story")
-		: data;
-};
-
 const filterCategory = (state, data) => {
 	let filterArray = [];
 	if (state.isClassic) {

@@ -3,7 +3,7 @@ import axios from "axios";
 import Book from "../../../../Assets/book.jpg";
 import { useFilter } from "../../../Context/FilterContext.js";
 
-const ProductCard = ({ title, author, price, categoryName }) => {
+const ProductCard = ({ title, author, price }) => {
 	return (
 		<div className="card card-shadow">
 			<div className="all-icon">

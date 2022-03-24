@@ -43,12 +43,12 @@ const FilterProvider = ({ children }) => {
 
 	const filteredProducts = Compose(
 		state,
+		filterCategory,
 		getSortBy,
 		getRange,
-		filterCategory,
 		getRating
 	)([...products]);
-	// console.log("Filtered", filteredProducts);
+
 	return (
 		<FilterContext.Provider value={{ state, filteredProducts, dispatch }}>
 			{children}

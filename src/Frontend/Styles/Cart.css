@@ -5,12 +5,6 @@
 	color: var(--ecom-login-bdr);
 	grid-template-columns: repeat(4, 1fr);
 	grid-gap: 10px;
-	grid-template-areas:
-		"head"
-		"side"
-		"info"
-		"content"
-		"footer";
 
 	grid-template-areas:
 		"  head head head head"
