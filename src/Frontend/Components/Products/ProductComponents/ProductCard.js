@@ -1,13 +1,22 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import Book from "../../../../Assets/book.jpg";
-import { useFilter } from "../../../Context/FilterContext.js";
+import { useCart } from "../../../Context/CartContext.js";
+import { useWishlist } from "../../../Context/WishlistContext.js";
 
 const ProductCard = ({ title, author, price }) => {
+	const { toCartDispatch } = useCart();
+	const { toWishlistDispatch } = useWishlist();
+
 	return (
 		<div className="card card-shadow">
 			<div className="all-icon">
-				<button className="heart-icon">
+				<button
+					className="heart-icon"
+					title="Add To Wishlist"
+					onClick={() =>
+						toWishlistDispatch({ type: "ADD-TO-WISHLIST", payload: price })
+					}
+				>
 					<i className="fa fa-heart"></i>
 				</button>
 
@@ -39,7 +48,12 @@ const ProductCard = ({ title, author, price }) => {
 			</div>
 			<div className="card-footer">
 				<button className="para-m-font icon-buy">Buy Now</button>
-				<button className="icon-btn cart-btn para-m-font">
+				<button
+					className="icon-btn cart-btn para-m-font"
+					onClick={() =>
+						toCartDispatch({ type: "ADD-TO-CART", payload: price })
+					}
+				>
 					<i className="fa fa-shopping-cart fa-margin-r"></i>Add To cart
 				</button>
 			</div>
