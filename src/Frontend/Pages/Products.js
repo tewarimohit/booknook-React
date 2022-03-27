@@ -24,7 +24,7 @@ const Products = () => {
 				<ProductsInfo totalProducts={filteredProducts} />
 				<div className="page-content">
 					{filteredProducts.map(product => (
-						<ProductCard key={product.id} {...product} />
+						<ProductCard key={product.id} product={product} />
 					))}
 				</div>
 

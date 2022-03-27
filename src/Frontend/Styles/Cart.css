@@ -8,7 +8,7 @@
 
 	grid-template-areas:
 		"  head head head head"
-		"  info info info side"
+		"  info info info ----"
 		"  content content content side"
 		"  footer footer footer footer";
 }

@@ -6,8 +6,8 @@ import { useCart } from "../../Context/CartContext.js";
 import { useWishlist } from "../../Context/WishlistContext.js";
 
 const NavBar = () => {
-	const { cartState } = useCart();
-	const { wishlistState } = useWishlist();
+	const { cart } = useCart();
+	const { wishlist } = useWishlist();
 
 	return (
 		<div className="ecom-header-nav">
@@ -20,14 +20,12 @@ const NavBar = () => {
 				</Link>
 				<Link to="/wishlist" title="Wishlist" className="head-link heart">
 					<i className="material-icons">favorite_border </i>{" "}
-					<span className={wishlistState.wishlistItemStyle}>
-						{wishlistState.wishlistItems}
-					</span>
+					<span className="added-items ">{wishlist.length}</span>
 				</Link>
 
 				<Link to="/cart" className="cart head-link" title="Cart">
 					<i className="material-icons">shopping_cart</i>
-					<span className={cartState.cartItemStyle}>{cartState.cartItems}</span>
+					<span className="added-items ">{cart.length}</span>
 				</Link>
 			</nav>
 			<Link to="#" className="user" title="User Info">
