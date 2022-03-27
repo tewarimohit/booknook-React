@@ -2,7 +2,7 @@ import React from "react";
 import "../Styles/Wishlist.css";
 import "../Styles/Home.css";
 import Header from "../Components/HeaderComponents/Header";
-import { useWishlist } from "../Context/WishlistContext";
+import { useWishlist } from "../Context/index";
 import WishlistCard from "../Components/Wishlist/WishlistCard";
 
 const Wishlist = () => {

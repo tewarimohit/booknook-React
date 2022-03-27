@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { useAuth } from "../../Context/AuthContext";
+import { useAuth } from "../../Context/index";
 
 const LoginArea = () => {
 	const { authState, authDispatch } = useAuth();
@@ -13,7 +13,6 @@ const LoginArea = () => {
 			...data,
 			[event.target.name]: event.target.value,
 		}));
-		// console.log(userLogin);
 	};
 
 	const userLoginHandler = async (email, password) => {
@@ -34,12 +33,15 @@ const LoginArea = () => {
 	};
 
 	return (
-		<div class="login-area">
-			<h1 class="hd-m2-font heading-color std-font-two margin-bottom-s">
+		<div className="login-area">
+			<h1 className="hd-m2-font heading-color std-font-two margin-bottom-s">
 				Login
 			</h1>
-			<div class="first-input">
-				<label class="para-m-font std-font-two margin-bottom-s" for="username">
+			<div className="first-input">
+				<label
+					className="para-m-font std-font-two margin-bottom-s"
+					for="username"
+				>
 					Email address
 				</label>
 				<input
@@ -51,8 +53,11 @@ const LoginArea = () => {
 					onChange={userInputHandler}
 				/>
 			</div>
-			<div class="second-input">
-				<label class="para-m-font std-font-two margin-bottom-s" for="password">
+			<div className="second-input">
+				<label
+					className="para-m-font std-font-two margin-bottom-s"
+					for="password"
+				>
 					Password
 				</label>
 				<input
@@ -64,14 +69,14 @@ const LoginArea = () => {
 					onChange={userInputHandler}
 				/>
 			</div>
-			<div class="third-input">
-				<input class="checkbox" type="checkbox" />
-				<label class="para-s-font margin-left-s" for="username">
+			<div className="third-input">
+				<input className="checkbox" type="checkbox" />
+				<label className="para-s-font margin-left-s" for="username">
 					Remember me
 				</label>
-				<a href="#" class="margin-auto forgot-pass">
-					Forgot your Password ?
-				</a>
+				<Link to="" className="margin-auto forgot-pass">
+					/ Forgot your Password ?
+				</Link>
 			</div>
 
 			<button
@@ -81,17 +86,17 @@ const LoginArea = () => {
 				Login
 			</button>
 
-			<div class="signin-area">
-				<Link class="para-m-font heading-color std-font-two" to="/signup">
+			<div className="signin-area">
+				<Link className="para-m-font heading-color std-font-two" to="/signup">
 					CREATE NEW ACCOUNT
 				</Link>
 
-				<span class="hd-m2-font bookish-font margin-left-s heading-color">
+				<span className="hd-m2-font bookish-font margin-left-s heading-color">
 					{">"}
 				</span>
 			</div>
 
-			<span class="login-close std-font-two">X</span>
+			<span className="login-close std-font-two">X</span>
 		</div>
 	);
 };

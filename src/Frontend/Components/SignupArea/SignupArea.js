@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { useAuth } from "../../Context/AuthContext";
+import { useAuth } from "../../Context/index";
 
 const SignupArea = () => {
 	const { authState, authDispatch } = useAuth();
@@ -60,7 +60,7 @@ const SignupArea = () => {
 			<div className="first-input">
 				<label
 					className="para-m-font std-font-two margin-bottom-s"
-					for="username"
+					htmlFor="username"
 				>
 					First Name
 				</label>
@@ -76,7 +76,7 @@ const SignupArea = () => {
 			<div className="first-input">
 				<label
 					className="para-m-font std-font-two margin-bottom-s"
-					for="username"
+					htmlFor="username"
 				>
 					Last Name
 				</label>
@@ -93,7 +93,7 @@ const SignupArea = () => {
 			<div className="second-input">
 				<label
 					className="para-m-font std-font-two margin-bottom-s"
-					for="password"
+					htmlFor="password"
 				>
 					Password
 				</label>
@@ -109,7 +109,7 @@ const SignupArea = () => {
 			<div className="second-input">
 				<label
 					className="para-m-font std-font-two margin-bottom-s"
-					for="password"
+					htmlFor="password"
 				>
 					Re-Enter Password
 				</label>

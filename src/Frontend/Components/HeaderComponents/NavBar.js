@@ -2,8 +2,7 @@ import React from "react";
 import "../../../App.css";
 import { Link } from "react-router-dom";
 import Avatar from "../../../Assets/avatar.png";
-import { useCart } from "../../Context/CartContext.js";
-import { useWishlist } from "../../Context/WishlistContext.js";
+import { useCart, useWishlist } from "../../Context/index";
 
 const NavBar = () => {
 	const { cart } = useCart();

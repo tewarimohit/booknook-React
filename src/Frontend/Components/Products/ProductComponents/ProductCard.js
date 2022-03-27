@@ -1,14 +1,12 @@
 import Book from "../../../../Assets/book.jpg";
 import { useNavigate } from "react-router-dom";
-import { useCart } from "../../../Context/CartContext.js";
-import { useWishlist } from "../../../Context/WishlistContext.js";
+import { useCart, useWishlist } from "../../../Context/index";
 import { addToWishlist, getToken } from "../../../Utilities/Wishlist-Utility";
 import { addToCart } from "../../../Utilities/Cart-Utility";
 
 const ProductCard = ({ product }) => {
 	const { cart, setCart } = useCart();
 	const { wishlist, setWishlist } = useWishlist();
-	// console.log("productid", id);
 
 	return (
 		<div className="card card-shadow">

@@ -1,12 +1,12 @@
 import React from "react";
-import { useCart } from "../../Context/CartContext";
+import { useCart } from "../../Context/index";
 
 const CartInfo = () => {
 	const { cart } = useCart();
 
 	return (
-		<div class="cart-info">
-			<h1 class="hd-m-font std-font-two ">My cart ({cart.length})</h1>
+		<div className="cart-info">
+			<h1 className="hd-m-font std-font-two ">My cart ({cart.length})</h1>
 		</div>
 	);
 };

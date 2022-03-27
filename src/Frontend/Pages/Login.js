@@ -8,7 +8,7 @@ const Login = () => {
 		<div>
 			<Header />
 
-			<div class="login-page-body">
+			<div className="login-page-body">
 				<LoginArea />
 			</div>
 		</div>

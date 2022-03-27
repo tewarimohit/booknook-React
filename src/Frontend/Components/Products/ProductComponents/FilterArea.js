@@ -1,5 +1,5 @@
 import React from "react";
-import { useFilter } from "../../../Context/FilterContext.js";
+import { useFilter } from "../../../Context/index";
 
 const FilterArea = () => {
 	const { state, dispatch } = useFilter();
