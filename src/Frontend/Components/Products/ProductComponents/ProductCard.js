@@ -5,9 +5,10 @@ import { addToWishlist, getToken } from "../../../Utilities/Wishlist-Utility";
 import { addToCart } from "../../../Utilities/Cart-Utility";
 
 const ProductCard = ({ product }) => {
+	const navigate = useNavigate();
 	const { cart, setCart } = useCart();
 	const { wishlist, setWishlist } = useWishlist();
-
+	console.log(product);
 	return (
 		<div className="card card-shadow">
 			<div className="all-icon">
@@ -15,10 +16,14 @@ const ProductCard = ({ product }) => {
 					className="heart-icon"
 					title="Add To Wishlist"
 					onClick={() => {
-						if (wishlist.find(item => item._id === product._id)) {
-							console.log("Item is already there.");
+						if (getToken()) {
+							if (wishlist.find(item => item._id === product._id)) {
+								console.log("Item is already there.");
+							} else {
+								addToWishlist(product, setWishlist);
+							}
 						} else {
-							addToWishlist(product, setWishlist);
+							navigate("/login");
 						}
 					}}
 				>
@@ -38,7 +43,7 @@ const ProductCard = ({ product }) => {
 				</button>
 			</div>
 			<div className="card-header card-image">
-				<img src={Book} alt="Book" srcset="" />
+				<img src={product.imageProduct} alt="Book" srcset="" />
 				<span className="std-font-two prime-color">{product.title}</span>
 			</div>
 			<span className="std-font-two para-m-font prime-color margin-left-l">
@@ -48,7 +53,7 @@ const ProductCard = ({ product }) => {
 				₹ {product.price}
 				<span className="margin-left-l para-s-font text-cut dark-text">
 					{" "}
-					₹ 900
+					₹ {product.discount}
 				</span>
 			</div>
 			<div className="card-footer">
@@ -56,10 +61,14 @@ const ProductCard = ({ product }) => {
 				<button
 					className="icon-btn cart-btn para-m-font"
 					onClick={() => {
-						if (cart.find(item => item._id === product._id)) {
-							console.log("Item Already present in cart..");
+						if (getToken()) {
+							if (cart.find(item => item._id === product._id)) {
+								console.log("Item Already present in cart..");
+							} else {
+								addToCart(product, setCart);
+							}
 						} else {
-							addToCart(product, setCart);
+							navigate("/login");
 						}
 					}}
 				>

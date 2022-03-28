@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../Context/index";
 
 const LoginArea = () => {
+	const navigate = useNavigate();
 	const { authState, authDispatch } = useAuth();
 
-	const [userLogin, setUserLogin] = useState({ email: "", password: "" });
+	const [userLogin, setUserLogin] = useState({
+		email: "",
+		password: "",
+	});
 
 	const userInputHandler = event => {
 		setUserLogin(data => ({
@@ -27,6 +31,7 @@ const LoginArea = () => {
 				payload: data.foundUser,
 			});
 			localStorage.setItem("token", data.encodedToken);
+			navigate("/products");
 		} catch (error) {
 			console.log(error.response.data);
 		}
@@ -75,13 +80,15 @@ const LoginArea = () => {
 					Remember me
 				</label>
 				<Link to="" className="margin-auto forgot-pass">
-					/ Forgot your Password ?
+					Forgot your Password ?
 				</Link>
 			</div>
 
 			<button
 				class="primary-btn normal-btn btn-width"
-				onClick={() => userLoginHandler(userLogin.email, userLogin.password)}
+				onClick={() => {
+					userLoginHandler(userLogin.email, userLogin.password);
+				}}
 			>
 				Login
 			</button>
