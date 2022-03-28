@@ -1,27 +1,30 @@
-import React, { createContext, useContext, useReducer } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
+import axios from "axios";
+import { getToken } from "../Utilities/Wishlist-Utility";
+import { useAuth } from "./AuthContext";
 
 const CartContext = createContext(null);
 
-const itemsInCart = (state, action) => {
-	if (action.type === "ADD-TO-CART") {
-		return {
-			...state,
-			cartItems: state.cartItems + 1,
-			totalAmount: state.totalAmount + action.payload,
-			cartItemStyle: (state.cartItemStyle = "added-items"),
-		};
-	}
-};
-
 const CartProvider = ({ children }) => {
-	const [cartState, toCartDispatch] = useReducer(itemsInCart, {
-		cartItems: null,
-		cartItemStyle: "none",
-		totalAmount: 0,
-	});
+	const [cart, setCart] = useState([]);
+	const { authState } = useAuth();
 
+	useEffect(() => {
+		if (!authState.isAuth) return;
+
+		(async () => {
+			const response = await axios.get("/api/user/cart", {
+				headers: {
+					authorization: getToken(),
+				},
+			});
+			console.log(response);
+			setCart(response.data.cart);
+		})();
+	}, []);
+	console.log(cart);
 	return (
-		<CartContext.Provider value={{ cartState, toCartDispatch }}>
+		<CartContext.Provider value={{ cart, setCart }}>
 			{children}
 		</CartContext.Provider>
 	);

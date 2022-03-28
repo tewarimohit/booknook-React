@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const PageTitle = () => {
 	return (
 		<Link
-			to="/home"
+			to="/"
 			className="logo hd-m-font bookish-font letter-spacing-l txt-shadow"
 		>
 			booknook

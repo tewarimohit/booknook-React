@@ -5,7 +5,7 @@ import Header from "../Components/HeaderComponents/Header";
 import FilterArea from "../Components/Products/ProductComponents/FilterArea";
 import ProductsInfo from "../Components/Products/ProductComponents/ProductsInfo";
 import ProductCard from "../Components/Products/ProductComponents/ProductCard";
-import { useFilter } from "../Context/FilterContext.js";
+import { useFilter } from "../Context/index";
 const Products = () => {
 	const { filteredProducts } = useFilter();
 
@@ -24,7 +24,7 @@ const Products = () => {
 				<ProductsInfo totalProducts={filteredProducts} />
 				<div className="page-content">
 					{filteredProducts.map(product => (
-						<ProductCard key={product.id} {...product} />
+						<ProductCard key={product.id} product={product} />
 					))}
 				</div>
 
