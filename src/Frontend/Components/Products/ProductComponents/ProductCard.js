@@ -26,7 +26,7 @@ const ProductCard = ({ product }) => {
 						}
 					}}
 				>
-					<i className="fa fa-heart"></i>
+					<i className="material-icons">favorite_border </i>
 				</button>
 
 				<button className="icons">
