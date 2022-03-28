@@ -1,11 +1,12 @@
 import React from "react";
+import bgimage from "../../../assets/storytelling.jpg";
 import { Link } from "react-router-dom";
 
 const PageBody = () => {
 	return (
 		<div className="page-body">
 			<div className="home-img">
-				<img src="./Assets/storytelling.jpg" alt="home-image" />
+				<img src={bgimage} alt="home-image" />
 			</div>
 			<div className="col-2">
 				<h1 className="hd-l-font bookish-font margin-1">
