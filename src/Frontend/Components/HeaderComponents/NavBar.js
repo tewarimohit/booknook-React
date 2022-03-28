@@ -1,7 +1,7 @@
 import React from "react";
 import "../../../App.css";
 import { Link } from "react-router-dom";
-
+import avatar from "../../../assets/avatar.png";
 import { useCart, useWishlist, useAuth } from "../../Context/index";
 import { useNavigate } from "react-router-dom";
 
@@ -54,7 +54,7 @@ const NavBar = () => {
 			</Link>
 			<Link to="#">
 				<div className="user-img" title="Profile Picture">
-					<img className="border-50" src={"./Assets/avatar.png"} alt="Avatar" />
+					<img className="border-50" src={avatar} alt="Avatar" />
 				</div>
 			</Link>
 		</div>

@@ -1,4 +1,3 @@
-import Book from "../../../../Assets/book.jpg";
 import { useNavigate } from "react-router-dom";
 import { useCart, useWishlist } from "../../../Context/index";
 import { addToWishlist, getToken } from "../../../Utilities/Wishlist-Utility";
