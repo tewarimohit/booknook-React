@@ -26,7 +26,7 @@ const ProductCard = ({ product }) => {
 						}
 					}}
 				>
-					<i className="material-icons">favorite_border </i>
+					<i class="fa-solid fa-heart" style={{ fontSize: "1.2rem" }}></i>
 				</button>
 
 				<button className="icons">
