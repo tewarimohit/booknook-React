@@ -10,7 +10,7 @@ export const products = [
 		_id: uuid(),
 		title: "The Jungle Book",
 		author: "Rudyard Kipling",
-		imageProduct: "./Assets/junglebookp.jpg",
+		imageProduct: "",
 		imageCart: "./Assets/junglebookc.jpg",
 		price: "5000",
 		categoryName: "action",
