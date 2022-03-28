@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { createContext, useContext, useState, useEffect } from "react";
 import { getToken } from "../Utilities/Wishlist-Utility.js";
-import { useAuth } from "../Context/AuthContext.js";
+import { useAuth } from "../Context/index";
 
 const WishlistContext = createContext();
 
@@ -26,7 +26,7 @@ const WishlistProvider = ({ children }) => {
 			}
 		})();
 	}, []);
-	
+
 	return (
 		<WishlistContext.Provider value={{ wishlist, setWishlist }}>
 			{children}

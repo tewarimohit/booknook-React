@@ -1,12 +1,22 @@
 import React from "react";
 import "../../../App.css";
 import { Link } from "react-router-dom";
-import Avatar from "../../../Assets/avatar.png";
-import { useCart, useWishlist } from "../../Context/index";
+
+import { useCart, useWishlist, useAuth } from "../../Context/index";
+import { useNavigate } from "react-router-dom";
 
 const NavBar = () => {
-	const { cart } = useCart();
-	const { wishlist } = useWishlist();
+	const { cart, setCart } = useCart();
+	const { wishlist, setWishlist } = useWishlist();
+	const { authState } = useAuth();
+	const navigate = useNavigate();
+
+	const logoutHandler = () => {
+		localStorage.clear("token");
+		setCart([]);
+		setWishlist([]);
+		authState.isAuth = false;
+	};
 
 	return (
 		<div className="ecom-header-nav">
@@ -14,9 +24,21 @@ const NavBar = () => {
 				<Link to="/products" className="user" title="Products">
 					<span className="head-link">Products</span>
 				</Link>
-				<Link to="/login" className="link prime-link1 link-text login-color">
-					Login
-				</Link>
+
+				{authState.isAuth ? (
+					<Link
+						to="/login"
+						className="link prime-link1 link-text login-color"
+						onClick={logoutHandler}
+					>
+						Logout
+					</Link>
+				) : (
+					<Link to="/login" className="link prime-link1 link-text login-color">
+						Login
+					</Link>
+				)}
+
 				<Link to="/wishlist" title="Wishlist" className="head-link heart">
 					<i className="material-icons">favorite_border </i>{" "}
 					<span className="added-items ">{wishlist.length}</span>
@@ -32,7 +54,7 @@ const NavBar = () => {
 			</Link>
 			<Link to="#">
 				<div className="user-img" title="Profile Picture">
-					<img className="border-50" src={Avatar} alt="Avatar" />
+					<img className="border-50" src={"./Assets/avatar.png"} alt="Avatar" />
 				</div>
 			</Link>
 		</div>

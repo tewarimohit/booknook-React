@@ -1,5 +1,4 @@
 import React from "react";
-import Book from "../../../Assets/book.jpg";
 import { removeFromWishlist } from "../../Utilities/Wishlist-Utility";
 import { addToCart } from "../../Utilities/Cart-Utility";
 import { useCart, useWishlist } from "../../Context/index";
@@ -20,7 +19,7 @@ const WishlistCard = ({ product }) => {
 				</button>
 			</div>
 			<div className="card-header card-image">
-				<img src={Book} alt="Book" srcset="" />
+				<img src={product.imageProduct} alt="Book" srcset="" />
 
 				<div className="wishlist-card-footer">
 					<span className="std-font-two prime-color margin-bottom-m">
@@ -31,6 +30,10 @@ const WishlistCard = ({ product }) => {
 					</span>
 					<div className="wishlist-card-body prime-color margin-bottom-m ">
 						₹ {product.price}
+						<span className="margin-left-l para-s-font text-cut dark-text">
+							{" "}
+							₹ {product.discount}
+						</span>
 					</div>
 
 					<button

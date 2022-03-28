@@ -1,17 +1,22 @@
 import React from "react";
 import { useCart, useWishlist } from "../../Context/index";
-import { removeFromCart } from "../../Utilities/Cart-Utility";
+import {
+	removeFromCart,
+	cartQuantityHandler,
+	orderArea,
+} from "../../Utilities/Cart-Utility";
 import { addToWishlist } from "../../Utilities/Wishlist-Utility";
-import Book from "../../../Assets/books.jpg";
+
 
 const CartCard = ({ product }) => {
 	const { cart, setCart } = useCart();
 	const { wishlist, setWishlist } = useWishlist();
-	console.log(product);
+	const { discountPercent } = orderArea(cart);
+
 	return (
 		<div className="card cart-card card-shadow">
 			<div className="cart-card-header cart-card-image">
-				<img src={Book} alt="Book" srcset="" />
+				<img src={product.imageCart} alt="Book" srcset="" />
 			</div>
 			<div className="cart-card-info margin-left-l">
 				<span className="std-font-two hd-m-font prime-color padding-top  margin-bottom-m">
@@ -24,16 +29,32 @@ const CartCard = ({ product }) => {
 					₹ {product.price}
 					<span className="margin-left-l para-s-font text-cut dark-text margin-bottom-m">
 						{" "}
-						₹ 5000
+						₹ {product.discount}
 					</span>
 				</div>
-				<span className=" para-m-font dark-text margin-bottom-s">50% off</span>
+				<span className=" para-m-font dark-text margin-bottom-s">20% off</span>
 				<div className="quantity margin-bottom-m">
 					<div className="  quantity">
 						<h1 className="para-s-font">Quantity:</h1>
-						<button className="q-btns margin-left-s">-</button>
-						<div className=" para-m-font margin-left-s">5</div>
-						<button className="q-btns margin-left-s">+</button>
+						<button
+							className="q-btns margin-left-s"
+							disabled={product.qty <= 1}
+							onClick={() =>
+								cartQuantityHandler(product._id, setCart, "decrement")
+							}
+						>
+							<strong>-</strong>
+						</button>
+
+						<div className=" para-m-font margin-left-s">{product.qty}</div>
+						<button
+							className="q-btns margin-left-s"
+							onClick={() =>
+								cartQuantityHandler(product._id, setCart, "increment")
+							}
+						>
+							<strong>+</strong>
+						</button>
 					</div>
 				</div>
 
