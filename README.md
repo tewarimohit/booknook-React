@@ -1,6 +1,6 @@
 # booknook
 Booknook is an e-commerce website for the dedicated booklovers. 
-You can choose books according to the category suitable to you,
+You can choose books according to the category suitable to you.
 
 ## How to use the website?
 The link will direct you to homepage of booknook.
